@@ -1,0 +1,5 @@
+{
+  "main": "./LoggedButton.js",
+  "name": "LoggedButton",
+  "private": true
+}

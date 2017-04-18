@@ -1,0 +1,86 @@
+$width: 50px;
+$height: $width/2;
+$amber: #FFC107;
+$grey: #ccc;
+$time: 0.4s;
+$logo-height: 64px;
+
+.logo {
+  background: rgb(0, 188, 212);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 24px;
+  height: $logo-height;
+}
+
+.logo__pacman {
+  margin-left: 10px;
+  position: relative;
+  width: $width;
+}
+
+.logo__text {
+  line-height: $logo-height;
+  margin-left: 10px;
+}
+
+@mixin animation($name) {
+  @-webkit-keyframes #{$name} {@content;}
+  @-moz-keyframes #{$name} {@content;}
+  @-o-keyframes #{$name} {@content;}
+  @keyframes #{$name} {@content;}
+}
+
+@include animation(up) {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@include animation(down) {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+@include animation(r-to-l) {
+  100% {
+    margin-left: -1px;
+  }
+}
+
+@mixin use-animation($name, $time){
+  -webkit-animation: $name $time infinite;
+  -moz-animation: $name $time infinite;
+  -o-animation: $name $time infinite;
+  animation: $name $time infinite;
+}
+
+.logo__pacman:before, .logo__pacman:after{
+  content: '';
+  position: absolute;
+  background: $amber;
+  width: $width;
+  height: $height;
+  left: 50%;
+  top: 50%;
+  margin-left: - $width/2;
+  margin-top: - $height;
+  border-radius: $height $height 0 0;
+
+  @include use-animation(up, $time);
+}
+
+.logo__pacman:after {
+  margin-top: -1px;
+  border-radius: 0 0 $height $height;
+
+  @include use-animation(down, $time);
+}

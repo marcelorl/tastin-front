@@ -1,0 +1,5 @@
+# Tastin
+
+Tools
+  - React
+  - Redux
