@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "auth0-lock": "^10.14.0",
+    "express": "^4.15.2",
     "google-map-react": "^0.24.0",
     "material-ui": "^0.17.4",
+    "path": "^0.12.7",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
