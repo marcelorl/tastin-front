@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "auth0-lock": "^10.14.0",
+    "enzyme": "^2.8.2",
     "express": "^4.15.2",
     "google-map-react": "^0.24.0",
     "material-ui": "^0.17.4",
@@ -15,6 +16,7 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "react-scripts": "0.9.5"
   },
   "scripts": {
+    "coverage": "npm test -- --coverage",
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
