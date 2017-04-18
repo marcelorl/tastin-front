@@ -24,7 +24,7 @@
     "npm-run-all": "^4.0.2",
     "path": "^0.12.7",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^15.5.4"
   },
   "scripts": {
     "coverage": "npm test -- --coverage",
