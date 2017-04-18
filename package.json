@@ -2,13 +2,11 @@
   "name": "tastin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://marcelorl.github.io/tastin-front",
   "dependencies": {
     "auth0-lock": "^10.14.0",
-    "enzyme": "^2.8.2",
-    "express": "^4.15.2",
     "google-map-react": "^0.24.0",
     "material-ui": "^0.17.4",
-    "path": "^0.12.7",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -16,13 +14,17 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
-    "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "enzyme": "^2.8.2",
+    "express": "^4.15.2",
+    "gh-pages": "^0.12.0",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
-    "react-scripts": "0.9.5"
+    "path": "^0.12.7",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.5.4",
   },
   "scripts": {
     "coverage": "npm test -- --coverage",
@@ -32,6 +34,8 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
