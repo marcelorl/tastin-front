@@ -1,0 +1,5 @@
+{
+  "main": "./MapMarker.js",
+  "name": "MapMarker",
+  "private": true
+}
