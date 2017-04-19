@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import Divider from 'material-ui/Divider';
 
 const LoggedButton = (props) => (
   <IconMenu
@@ -14,8 +16,14 @@ const LoggedButton = (props) => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
-    <MenuItem primaryText="Sign out" onClick={props.auth.getUserInfo} />
+    <MenuItem primaryText={props.auth.getProfile().name} disabled />
+    <Divider />
+    <MenuItem primaryText="Sign out" onClick={props.auth.logout} />
   </IconMenu>
 );
+
+LoggedButton.propTypes = {
+  auth: PropTypes.shape({})
+};
 
 export default LoggedButton;
