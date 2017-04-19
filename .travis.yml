@@ -1,11 +1,14 @@
 language: node_js
 node_js:
-  - 6
+  - 7
 cache:
   directories:
     - node_modules
-script:
+install:
   - npm rebuild node-sass
-  - npm run build-css
-  - npm test
-  - npm run build
+  - yarn
+before_script:
+  - yarn build-css
+script:
+  - yarn test
+  - yarn build
