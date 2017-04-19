@@ -6,11 +6,12 @@ $time: 0.4s;
 $logo-height: 64px;
 
 .logo {
+  align-items: center;
   background: rgb(0, 188, 212);
   color: #fff;
-  cursor: pointer;
   display: flex;
   font-size: 24px;
+  justify-content: space-between;
   height: $logo-height;
 }
 
@@ -23,6 +24,10 @@ $logo-height: 64px;
 .logo__text {
   line-height: $logo-height;
   margin-left: 10px;
+}
+
+.logo__close-sidebar {
+  margin-right: 10px;
 }
 
 @mixin animation($name) {
