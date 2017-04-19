@@ -11,11 +11,18 @@ export default class AuthService {
     this.lock.on('authenticated', this._doAuthentication.bind(this));
 
     this.login = this.login.bind(this);
-    this.getUserInfo = this.getUserInfo.bind(this);
   }
 
   _doAuthentication(authResult) {
     this.setToken(authResult.idToken);
+
+    this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
+      if (!error) {
+        this.setProfile(profile);
+      } else {
+        console.log('Error loading the Profile', error)
+      }
+    });
   }
 
   login() {
@@ -30,19 +37,21 @@ export default class AuthService {
     localStorage.setItem('id_token', idToken)
   }
 
+  setProfile(profile) {
+    // Saves profile data to local storage
+    localStorage.setItem('profile', JSON.stringify(profile))
+  }
+
   getToken() {
     return localStorage.getItem('id_token')
   }
 
-  logout() {
-    localStorage.removeItem('id_token');
+  getProfile() {
+    return JSON.parse(localStorage.getItem('profile'));
   }
 
-  getUserInfo() {
-    this.lock.getUserInfo(this.getToken(), function(error, profile) {
-      if (!error) {
-        alert("hello " + profile.name);
-      }
-    });
+  logout() {
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('profile');
   }
 }

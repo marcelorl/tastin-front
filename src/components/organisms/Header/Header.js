@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import KeyboardBackspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
 import LoginButton from '../../atoms/LoginButton';
 import LoggedButton from '../../atoms/LoggedButton';
 
@@ -38,9 +40,14 @@ class Header extends Component {
         <Drawer
           open={this.state.open}
         >
-          <div className="logo" onClick={this.onLogoClick}>
-            <div className="logo__pacman"></div>
-            <div className="logo__text">Tastin</div>
+          <div className="logo">
+            <div style={{ display: "flex" }}>
+              <div className="logo__pacman"></div>
+              <div className="logo__text">Tastin</div>
+            </div>
+            <FloatingActionButton mini className="logo__close-sidebar" onClick={this.onLogoClick}>
+              <KeyboardBackspace />
+            </FloatingActionButton>
           </div>
         </Drawer>
       </div>
