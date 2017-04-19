@@ -25,7 +25,12 @@
     "npm-run-all": "^4.0.2",
     "path": "^0.12.7",
     "react-scripts": "0.9.5",
-    "react-test-renderer": "^15.5.4"
+    "react-test-renderer": "^15.5.4",
+    "semistandard": "^10.0.0",
+    "snazzy": "^7.0.0"
+  },
+  "semistandard": {
+    "globals": [ "localStorage", "it" ]
   },
   "scripts": {
     "coverage": "npm test -- --coverage",
@@ -37,6 +42,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "lint": "semistandard \"src/**/*.js\" --verbose | snazzy"
   }
 }

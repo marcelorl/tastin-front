@@ -9,7 +9,7 @@ import Divider from 'material-ui/Divider';
 const LoggedButton = (props) => (
   <IconMenu
     iconButtonElement={
-      <FloatingActionButton mini secondary={true}>
+      <FloatingActionButton mini secondary>
         <MoreVertIcon />
       </FloatingActionButton>
     }
@@ -18,7 +18,7 @@ const LoggedButton = (props) => (
   >
     <MenuItem primaryText={props.auth.getProfile().name} disabled />
     <Divider />
-    <MenuItem primaryText="Sign out" onClick={props.auth.logout} />
+    <MenuItem primaryText='Sign out' onClick={props.auth.logout} />
   </IconMenu>
 );
 

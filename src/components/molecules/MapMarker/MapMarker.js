@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import './MapMarker.css';
 
 class Marker extends Component {
-  render() {
+  render () {
     return (
-      <div className="marker">
-        <div className="marker__pin">
-          <div className="marker__pin__pointer"></div>
-          <div className="marker__pin__pulse"></div>
+      <div className='marker'>
+        <div className='marker__pin'>
+          <div className='marker__pin__pointer' />
+          <div className='marker__pin__pulse' />
         </div>
       </div>
     );

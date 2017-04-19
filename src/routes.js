@@ -7,7 +7,7 @@ import App from './components/pages/App';
 
 const routes = () =>
   <Router>
-    <Route path="/" component={App} />
+    <Route path='/' component={App} />
   </Router>;
 
 export default routes;
