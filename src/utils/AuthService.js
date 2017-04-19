@@ -1,7 +1,7 @@
-import Auth0Lock from 'auth0-lock'
+import Auth0Lock from 'auth0-lock';
 
 export default class AuthService {
-  constructor(clientId, domain) {
+  constructor (clientId, domain) {
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
         responseType: 'token'
@@ -13,44 +13,44 @@ export default class AuthService {
     this.login = this.login.bind(this);
   }
 
-  _doAuthentication(authResult) {
+  _doAuthentication (authResult) {
     this.setToken(authResult.idToken);
 
     this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
       if (!error) {
         this.setProfile(profile);
       } else {
-        console.log('Error loading the Profile', error)
+        console.log('Error loading the Profile', error);
       }
     });
   }
 
-  login() {
-    this.lock.show()
+  login () {
+    this.lock.show();
   }
 
-  loggedIn() {
-    return !!this.getToken()
+  loggedIn () {
+    return !!this.getToken();
   }
 
-  setToken(idToken) {
-    localStorage.setItem('id_token', idToken)
+  setToken (idToken) {
+    localStorage.setItem('id_token', idToken);
   }
 
-  setProfile(profile) {
+  setProfile (profile) {
     // Saves profile data to local storage
-    localStorage.setItem('profile', JSON.stringify(profile))
+    localStorage.setItem('profile', JSON.stringify(profile));
   }
 
-  getToken() {
-    return localStorage.getItem('id_token')
+  getToken () {
+    return localStorage.getItem('id_token');
   }
 
-  getProfile() {
+  getProfile () {
     return JSON.parse(localStorage.getItem('profile'));
   }
 
-  logout() {
+  logout () {
     localStorage.removeItem('id_token');
     localStorage.removeItem('profile');
   }
