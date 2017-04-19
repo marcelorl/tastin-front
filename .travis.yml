@@ -4,10 +4,8 @@ node_js:
 cache:
   directories:
     - node_modules
-install:
-  - npm rebuild node-sass
-  - yarn
 before_script:
+  - npm rebuild node-sass
   - yarn build-css
 script:
   - yarn test
