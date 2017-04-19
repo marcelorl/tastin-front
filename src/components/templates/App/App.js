@@ -5,12 +5,12 @@ import Header from '../../organisms/Header';
 import './App.css';
 
 class App extends Component {
-  render() {
+  render () {
     const { auth } = this.props;
 
     return (
       <MuiThemeProvider>
-        <div className="App">
+        <div className='App'>
           <Header auth={auth} />
           <div style={{width: '100%', height: '92vh'}}>
             <Map />
