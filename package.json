@@ -3,10 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelorl/tastin-front.git"
+  },
+  "author": "marcelorl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcelorl/tastin-front/issues"
+  },
   "homepage": "https://marcelorl.github.io/tastin-front",
   "dependencies": {
     "auth0-lock": "^10.14.0",
+    "axios": "^0.16.1",
     "google-map-react": "^0.24.0",
+    "lodash": "^4.17.4",
     "material-ui": "^0.17.4",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
