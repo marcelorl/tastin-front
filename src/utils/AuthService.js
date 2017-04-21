@@ -14,36 +14,40 @@ export default class AuthService {
   }
 
   _doAuthentication(authResult) {
-    this.setToken(authResult.idToken);
+    this.setCredentials(authResult);
 
     this.lock.getUserInfo(authResult.accessToken, (error, profile) => {
       if (!error) {
         this.setProfile(profile);
       } else {
-        console.log('Error loading the Profile', error)
+        console.log('Error loading the Profile', error);
       }
     });
   }
 
   login() {
-    this.lock.show()
+    this.lock.show();
   }
 
   loggedIn() {
-    return !!this.getToken()
+    return !!this.getIdToken() && !!this.getAccessToken();
   }
 
-  setToken(idToken) {
-    localStorage.setItem('id_token', idToken)
+  setCredentials({ idToken, accessToken }) {
+    localStorage.setItem('id_token', idToken);
+    localStorage.setItem('access_token', accessToken);
   }
 
   setProfile(profile) {
-    // Saves profile data to local storage
-    localStorage.setItem('profile', JSON.stringify(profile))
+    localStorage.setItem('profile', JSON.stringify(profile));
   }
 
-  getToken() {
-    return localStorage.getItem('id_token')
+  getIdToken() {
+    return localStorage.getItem('id_token');
+  }
+
+  getAccessToken() {
+    return localStorage.getItem('id_token');
   }
 
   getProfile() {
