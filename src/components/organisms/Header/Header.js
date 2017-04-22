@@ -35,7 +35,7 @@ class Header extends Component {
       <div>
         <AppBar
           onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap}
-          iconElementRight={auth.loggedIn() ? <LoggedButton auth={auth} /> : <LoginButton auth={auth} />}
+          iconElementRight={auth.loggedIn() ? <LoggedButton /> : <LoginButton auth={auth} />}
         />
         <Drawer
           open={this.state.open}
