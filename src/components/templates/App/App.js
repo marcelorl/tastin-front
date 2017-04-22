@@ -10,10 +10,12 @@ class App extends Component {
 
     return (
       <MuiThemeProvider>
-        <div className="App">
-          <Header auth={auth} />
-          <div style={{width: '100%', height: '92vh'}}>
+        <div>
+          <div className="map-container">
             <Map />
+          </div>
+          <div className="App">
+            <Header auth={auth} />
           </div>
         </div>
       </MuiThemeProvider>
