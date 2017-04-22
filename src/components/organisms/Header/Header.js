@@ -9,7 +9,7 @@ import LoggedButton from '../../atoms/LoggedButton';
 import './Header.css';
 
 class Header extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
 
     this.state = {
@@ -20,15 +20,15 @@ class Header extends Component {
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
   }
 
-  onLeftIconButtonTouchTap() {
+  onLeftIconButtonTouchTap () {
     this.setState({ open: true });
   }
 
-  onLogoClick() {
+  onLogoClick () {
     this.setState({ open: false });
   }
 
-  render() {
+  render () {
     const { auth } = this.props;
 
     return (
@@ -40,12 +40,12 @@ class Header extends Component {
         <Drawer
           open={this.state.open}
         >
-          <div className="logo">
-            <div style={{ display: "flex" }}>
-              <div className="logo__pacman"></div>
-              <div className="logo__text">Tastin</div>
+          <div className='logo'>
+            <div style={{ display: 'flex' }}>
+              <div className='logo__pacman' />
+              <div className='logo__text'>Tastin</div>
             </div>
-            <FloatingActionButton mini className="logo__close-sidebar" onClick={this.onLogoClick}>
+            <FloatingActionButton mini className='logo__close-sidebar' onClick={this.onLogoClick}>
               <KeyboardBackspace />
             </FloatingActionButton>
           </div>
