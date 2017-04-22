@@ -1,6 +1,23 @@
 import Auth0Lock from 'auth0-lock'
 
 export default class AuthService {
+  static getIdToken() {
+    return localStorage.getItem('id_token');
+  }
+
+  static getAccessToken() {
+    return localStorage.getItem('id_token');
+  }
+
+  static getProfile() {
+    return JSON.parse(localStorage.getItem('profile'));
+  }
+
+  static logout() {
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('profile');
+  }
+
   constructor(clientId, domain) {
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
@@ -30,7 +47,7 @@ export default class AuthService {
   }
 
   loggedIn() {
-    return !!this.getIdToken() && !!this.getAccessToken();
+    return !!this.constructor.getIdToken() && !!this.constructor.getAccessToken();
   }
 
   setCredentials({ idToken, accessToken }) {
@@ -40,22 +57,5 @@ export default class AuthService {
 
   setProfile(profile) {
     localStorage.setItem('profile', JSON.stringify(profile));
-  }
-
-  getIdToken() {
-    return localStorage.getItem('id_token');
-  }
-
-  getAccessToken() {
-    return localStorage.getItem('id_token');
-  }
-
-  getProfile() {
-    return JSON.parse(localStorage.getItem('profile'));
-  }
-
-  logout() {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('profile');
   }
 }

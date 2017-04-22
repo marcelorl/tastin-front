@@ -11,11 +11,23 @@ const INITIAL_STATE = {
 const restaurantReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case RESTAURANT_FAIL_FETCH:
+      return Object.assign({}, state, {
+        error: 'Error',
+        loading: false,
+        list: []
+      });
     case RESTAURANT_REQUEST_FETCH:
+      return Object.assign({}, state, {
+        error: '',
+        loading: true,
+        list: []
+      });
     case RESTAURANT_SUCCESS_FETCH:
       return Object.assign({}, state, {
-        //[action.subreddit]: posts(state[action.subreddit], action)
-      })
+        error: '',
+        loading: false,
+        list: action.restaurants.data
+      });
     default:
       return state
   }

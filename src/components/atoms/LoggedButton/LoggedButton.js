@@ -1,14 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Divider from 'material-ui/Divider';
 import get from 'lodash/get';
+import AuthService from '../../../utils/AuthService';
 
-const LoggedButton = (props) => {
-  const userName = get(props.auth.getProfile(), 'name', 'John Doe');
+const LoggedButton = () => {
+  const userName = get(AuthService.getProfile(), 'name', 'John Doe');
 
   return (
     <IconMenu
@@ -22,16 +22,9 @@ const LoggedButton = (props) => {
     >
       <MenuItem primaryText={userName} disabled />
       <Divider />
-      <MenuItem primaryText="Sign out" onClick={props.auth.logout} />
+      <MenuItem primaryText="Sign out" onClick={AuthService.logout} />
     </IconMenu>
   );
-}
-
-LoggedButton.propTypes = {
-  auth: PropTypes.shape({
-    getProfile: PropTypes.func,
-    logout: PropTypes.func
-  })
 };
 
 export default LoggedButton;
