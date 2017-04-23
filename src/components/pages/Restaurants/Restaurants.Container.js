@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import get from 'lodash/get';
 
-import { onSelectMaker } from '../../../actions/restaurant';
+import { onSelectMarker } from '../../../actions/restaurant';
 import Restaurants from './Restaurants';
 
 class RestaurantsContainer extends Component {
@@ -14,7 +14,7 @@ class RestaurantsContainer extends Component {
 }
 
 RestaurantsContainer.propTypes = {
-  onSelectMaker: PropTypes.func,
+  onSelectMarker: PropTypes.func,
   restaurants: PropTypes.array,
   user: PropTypes.shape({})
 };
@@ -26,7 +26,7 @@ const mapStateToProps = (state, ownProps) =>
   }, ownProps));
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  onSelectMaker
+  onSelectMarker
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RestaurantsContainer);

@@ -1,0 +1,5 @@
+{
+  "main": "./ReviewCard.js",
+  "name": "ReviewCard",
+  "private": true
+}

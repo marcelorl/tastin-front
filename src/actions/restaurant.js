@@ -36,7 +36,7 @@ export const fetchRestaurants = coords => {
   }
 };
 
-export const onSelectMaker = id => {
+export const onSelectMarker = id => {
   return dispatch => {
     dispatch(onSelectRestaurant(id));
   }

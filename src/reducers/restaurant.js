@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import {
   RESTAURANT_FAIL_FETCH,
   RESTAURANT_REQUEST_FETCH,
@@ -27,7 +28,7 @@ const restaurantReducer = (state = INITIAL_STATE, action) => {
       return Object.assign({}, state, {
         error: '',
         loading: false,
-        list: action.restaurants.data
+        list: get(action, 'restaurants.data', [])
       });
     case ON_SELECT_RESTAURANT: {
       const nList = state.list.map(val => {
