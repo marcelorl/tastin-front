@@ -3,6 +3,7 @@ import { geolocation } from '../utils/Map';
 export const USER_COORDS_REQUEST_FETCH = 'USER_COORDS_REQUEST_FETCH';
 export const USER_COORDS_SUCCESS_FETCH = 'USER_COORDS_SUCCESS_FETCH';
 export const USER_SUCCESS_SAVE = 'USER_SUCCESS_SAVE';
+export const USER_LOGOUT = 'USER_LOGOUT';
 
 const requestCoords = () =>
   ({
@@ -19,6 +20,11 @@ const successSave = profile =>
   ({
     type: USER_SUCCESS_SAVE,
     profile
+  });
+
+const userLogout = () =>
+  ({
+    type: USER_LOGOUT
   });
 
 export const fetchCoords = () =>
