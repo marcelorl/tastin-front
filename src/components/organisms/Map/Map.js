@@ -26,13 +26,12 @@ class Map extends Component {
 
     let places = restaurants
       .map(place => {
-        const {place_id, location, name} = place;
+        const {place_id, location} = place;
 
         return (
           <MapMarker
             key={place_id}
             {...location}
-            text={name}
             hover={this.props.hoverKey === place_id} />
         );
       });
@@ -73,7 +72,10 @@ Map.PropTypes = {
   onCenterChange: PropTypes.func,
   onZoomChange: PropTypes.func,
   onHoverKeyChange: PropTypes.func,
-
+  currentPosition: PropTypes.shape({
+    lat: PropTypes.string,
+    lng: PropTypes.string
+  }),
   restaurants: PropTypes.array
 };
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -69,5 +70,10 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  auth: PropTypes.shape({}),
+  user: PropTypes.shape({})
+};
 
 export default Header;

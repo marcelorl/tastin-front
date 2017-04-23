@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import './LoginButton.css';
@@ -9,6 +10,8 @@ const LoginButton = (props) => {
   return <RaisedButton className='login-button' label='Login' secondary onClick={auth.login.bind(this)} />;
 };
 
-LoginButton.muiName = 'FlatButton';
+LoginButton.propTypes = {
+  auth: PropTypes.shape({})
+};
 
 export default LoginButton;
