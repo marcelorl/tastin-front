@@ -21,9 +21,7 @@ export const fetchRestaurants = (coords) => {
   return dispatch => {
     dispatch(requestRestaurants(coords));
     return axios.get('/restaurants', {
-      params: {
-        coords
-      }
+      params: coords
     })
       .then(restaurants => dispatch(receiveRestaurants(restaurants)))
   }
