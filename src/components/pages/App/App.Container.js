@@ -27,9 +27,7 @@ class AppContainer extends Component {
   }
 
   render () {
-    const { auth, restaurants, user } = this.props;
-
-    return <App auth={auth} restaurants={restaurants} />;
+    return <App {...this.props} />;
   }
 }
 
@@ -42,7 +40,7 @@ const mapStateToProps = state =>
   ({
     auth: authService,
     restaurants: get(state, 'restaurants.list', []),
-    user: state.user
+    user: state.users.user
   });
 
 export default connect(mapStateToProps)(AppContainer);
