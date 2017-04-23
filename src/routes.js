@@ -3,12 +3,11 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import { browserHistory, IndexRedirect } from 'react-router'
+import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux';
 import App from './components/pages/App';
 import Restaurants from './components/pages/Restaurants';
 
-// class Restaurants extends Component { render() {return <div>Restaurants</div>;} }
 class Reviews extends Component { render() {return <div>Reviews</div>;} }
 
 const routes = ({ store }) => {
@@ -17,7 +16,8 @@ const routes = ({ store }) => {
   return (
     <Router history={history}>
       <App>
-        <Route path="/" component={Restaurants} />
+        <Route path="/list" component={Restaurants} />
+        <Route path="/:id/reviews" component={Reviews} />
       </App>
     </Router>
   );

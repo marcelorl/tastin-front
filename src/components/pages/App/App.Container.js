@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { bindActionCreators } from 'redux';
 import App from './App';
 import get from 'lodash/get';
@@ -26,6 +27,8 @@ class AppContainer extends Component {
     const { fetchRestaurants } = this.props;
 
     geolocation(fetchRestaurants);
+
+    browserHistory.push('/list');
   }
 
   render () {
