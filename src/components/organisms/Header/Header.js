@@ -4,10 +4,8 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import KeyboardBackspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
-import Divider from 'material-ui/Divider';
 import LoginButton from '../../atoms/LoginButton';
 import LoggedButton from '../../atoms/LoggedButton';
-import RestaurantCard from '../../molecules/RestaurantCard';
 import AuthService from '../../../utils/AuthService';
 
 import './Header.css';
@@ -50,19 +48,6 @@ class Header extends Component {
     return <LoginButton auth={auth} />;
   }
 
-  renderRestaurantsList () {
-    const { restaurants, onOverMarker, user } = this.props;
-
-    return restaurants.map((place, key) => {
-      return (
-        <div key={key}>
-          <RestaurantCard onOver={onOverMarker} restaurant={place} currentPosition={user.position} />
-          <Divider />
-        </div>
-      );
-    });
-  }
-
   render () {
     return (
       <div>
@@ -80,9 +65,7 @@ class Header extends Component {
               <KeyboardBackspace />
             </FloatingActionButton>
           </div>
-          <div className="restaurant-list">
-            {this.renderRestaurantsList()}
-          </div>
+          {this.props.children}
         </Drawer>
       </div>
     );
