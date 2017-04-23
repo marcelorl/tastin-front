@@ -6,7 +6,7 @@ import {
 } from '../actions/user';
 
 const INITIAL_STATE = {
-  loading: false, user: {}, position: {}, error: ''
+  loading: false, user: {}, logged: false, position: {}, error: ''
 };
 
 const restaurantReducer = (state = INITIAL_STATE, action) => {
@@ -27,13 +27,14 @@ const restaurantReducer = (state = INITIAL_STATE, action) => {
       return Object.assign(state, {
         error: '',
         loading: false,
+        logged: true,
         user: action.profile
       });
     case USER_LOGOUT:
       return Object.assign(state, {
         error: '',
-        loading: false,
-        user: false
+        logged: false,
+        user: {}
       });
     default:
       return state

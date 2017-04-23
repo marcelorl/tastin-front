@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Avatar from 'material-ui/Avatar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -8,7 +9,8 @@ import Divider from 'material-ui/Divider';
 import get from 'lodash/get';
 import AuthService from '../../../utils/AuthService';
 
-const LoggedButton = () => {
+const LoggedButton = props => {
+  const { logout } = props;
   const userName = get(AuthService.getProfile(), 'name', 'John Doe');
   const picture = get(AuthService.getProfile(), 'picture', '');
 
@@ -27,9 +29,13 @@ const LoggedButton = () => {
         {userName}
       </MenuItem>
       <Divider />
-      <MenuItem primaryText="Sign out" onClick={AuthService.logout} />
+      <MenuItem primaryText="Sign out" onClick={logout} />
     </IconMenu>
   );
+};
+
+LoggedButton.propTypes = {
+  logout: PropTypes.func
 };
 
 export default LoggedButton;

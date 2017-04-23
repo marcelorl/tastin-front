@@ -6,7 +6,7 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const { auth, restaurants, user } = this.props;
+    const { auth, logout, restaurants, user } = this.props;
 
     return (
       <MuiThemeProvider>
@@ -15,7 +15,7 @@ class App extends Component {
             <Map currentPosition={user.position} restaurants={restaurants} />
           </div>
           <div className="App">
-            <Header auth={auth} />
+            <Header auth={auth} logout={logout} user={user} />
           </div>
         </div>
       </MuiThemeProvider>

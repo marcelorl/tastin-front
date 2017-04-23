@@ -22,7 +22,7 @@ const successSave = profile =>
     profile
   });
 
-const userLogout = () =>
+const logout = () =>
   ({
     type: USER_LOGOUT
   });
@@ -38,5 +38,12 @@ export const fetchCoords = () =>
 
 export const saveUser = profile =>
   dispatch => {
-    dispatch(successSave(profile));
+    if (profile) {
+      dispatch(successSave(profile));
+    }
+  };
+
+export const userLogout = () =>
+  dispatch => {
+    dispatch(logout());
   };
