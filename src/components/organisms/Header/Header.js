@@ -37,9 +37,7 @@ class Header extends Component {
           onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap}
           iconElementRight={auth.loggedIn() ? <LoggedButton /> : <LoginButton auth={auth} />}
         />
-        <Drawer
-          open={this.state.open}
-        >
+        <Drawer open={this.state.open}>
           <div className='logo'>
             <div style={{ display: 'flex' }}>
               <div className='logo__pacman' />
