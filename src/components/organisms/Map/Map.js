@@ -4,25 +4,6 @@ import GoogleMapReact from 'google-map-react';
 import MapMarker from '../../molecules/MapMarker';
 
 class Map extends Component {
-  constructor (props) {
-    super(props);
-
-    const self = this;
-
-    this.state = {pos: {lat: 0, lng: 0}};
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        const pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        self.setState({ pos });
-      });
-    }
-  }
-
   _onChange (center, zoom) {
     this.props.onCenterChange(center);
     this.props.onZoomChange(zoom);
@@ -41,16 +22,17 @@ class Map extends Component {
   }
 
   render () {
-    const restaurants = this.props.restaurants
+    const { currentPosition, restaurants, zoom } = this.props;
+    const places = restaurants
       .map(place => {
-        const {id, ...coords} = place;
+        const {place_id, location, name} = place;
 
         return (
           <MapMarker
-            key={id}
-            {...coords}
-            text={id}
-            hover={this.props.hoverKey === id} />
+            key={place_id}
+            {...location}
+            text={name}
+            hover={this.props.hoverKey === place_id} />
         );
       });
 
@@ -59,15 +41,15 @@ class Map extends Component {
         bootstrapURLKeys={{
           key: 'AIzaSyBBvQLI7BPpXln_Jzl_tIUVH1f775C7GXM'
         }}
-        center={this.state.pos}
-        defaultZoom={this.props.zoom}
+        center={currentPosition}
+        defaultZoom={zoom}
         hoverDistance={40 / 2}
         /* onChange={this._onChange}
         onChildClick={this._onChildClick}
         onChildMouseEnter={this._onChildMouseEnter}
         onChildMouseLeave={this._onChildMouseLeave} */
-      >
-        {restaurants}
+       >
+        {places}
       </GoogleMapReact>
     );
   }

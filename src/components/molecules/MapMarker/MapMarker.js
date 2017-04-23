@@ -6,17 +6,14 @@ import './MapMarker.css';
 
 const pointerColor = '#89849b';
 
-class Marker extends Component {
-  render () {
-    return (
-      <div className='marker'>
-        <div className='marker__pin'>
-          <Place className="marker__pin__pointer" color={pointerColor} />
-          <div className='marker__pin__pulse' />
-        </div>
-      </div>
-    );
-  }
+const Marker = (props) => {
+  console.log('MARKER', props);
+  return(<div className='marker'>
+    <div className='marker__pin'>
+      <Place className="marker__pin__pointer" color={pointerColor} />
+      <div className='marker__pin__pulse' />
+    </div>
+  </div>);
 }
 
 Marker.PropTypes = {
