@@ -38,17 +38,18 @@ AppContainer.propTypes = {
   fetchCoords: PropTypes.func,
   fetchRestaurants: PropTypes.func,
   logout: PropTypes.func,
+  onSelectMaker: PropTypes.func,
   restaurants: PropTypes.array,
   saveUser: PropTypes.func,
   user: PropTypes.shape({})
 };
 
-const mapStateToProps = state =>
-  ({
+const mapStateToProps = (state, ownProps) =>
+  (Object.assign({
     auth: authService,
     restaurants: get(state, 'restaurants.list', []),
     user: state.users
-  });
+  }, ownProps));
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchCoords,
@@ -57,6 +58,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   onSelectMaker,
   saveUser
 }, dispatch);
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

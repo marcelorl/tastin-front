@@ -1,0 +1,5 @@
+{
+  "main": "./Restaurants.js",
+  "name": "Restaurants",
+  "private": true
+}

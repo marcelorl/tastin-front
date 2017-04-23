@@ -1,0 +1,5 @@
+{
+  "main": "./Restaurants.Container.js",
+  "name": "Restaurants",
+  "private": true
+}
