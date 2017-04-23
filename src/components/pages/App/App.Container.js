@@ -6,7 +6,7 @@ import get from 'lodash/get';
 
 import AuthService from '../../../utils/AuthService';
 import { fetchRestaurants } from '../../../actions/restaurant';
-import { fetchCoords } from '../../../actions/user';
+import { fetchCoords, saveUser } from '../../../actions/user';
 import { geolocation } from '../../../utils/Map';
 
 const authService = new AuthService(process.env.REACT_APP_AUTH0_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
@@ -17,6 +17,7 @@ class AppContainer extends Component {
 
     const { dispatch } = props;
     dispatch(fetchCoords());
+    dispatch(saveUser(AuthService.getProfile()));
   }
 
   componentDidMount () {
@@ -40,7 +41,7 @@ const mapStateToProps = state =>
   ({
     auth: authService,
     restaurants: get(state, 'restaurants.list', []),
-    user: state.users.user
+    user: state.users
   });
 
 export default connect(mapStateToProps)(AppContainer);
