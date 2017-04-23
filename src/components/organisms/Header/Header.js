@@ -29,7 +29,7 @@ class Header extends Component {
   }
 
   render () {
-    const { auth } = this.props;
+    const { auth, user } = this.props;
 
     return (
       <div>

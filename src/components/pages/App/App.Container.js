@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import App from './App';
 import get from 'lodash/get';
 
 import AuthService from '../../../utils/AuthService';
 import { fetchRestaurants } from '../../../actions/restaurant';
-import { fetchCoords, saveUser } from '../../../actions/user';
+import { fetchCoords, saveUser, userLogout } from '../../../actions/user';
 import { geolocation } from '../../../utils/Map';
 
 const authService = new AuthService(process.env.REACT_APP_AUTH0_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
@@ -15,16 +16,16 @@ class AppContainer extends Component {
   constructor (props) {
     super(props);
 
-    const { dispatch } = props;
-    dispatch(fetchCoords());
-    dispatch(saveUser(AuthService.getProfile()));
+    const { fetchCoords, saveUser } = props;
+
+    fetchCoords();
+    saveUser(AuthService.getProfile());
   }
 
   componentDidMount () {
-    const { dispatch } = this.props;
-    const dispatchFetchRestaurants = pos => dispatch(fetchRestaurants(pos));
+    const { fetchRestaurants } = this.props;
 
-    geolocation(dispatchFetchRestaurants);
+    geolocation(fetchRestaurants);
   }
 
   render () {
@@ -44,4 +45,12 @@ const mapStateToProps = state =>
     user: state.users
   });
 
-export default connect(mapStateToProps)(AppContainer);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  fetchCoords,
+  fetchRestaurants: pos => fetchRestaurants(pos),
+  logout: userLogout,
+  saveUser
+}, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

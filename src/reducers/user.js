@@ -1,8 +1,8 @@
-import get from 'lodash/get';
 import {
   USER_COORDS_REQUEST_FETCH,
   USER_COORDS_SUCCESS_FETCH,
-  USER_SUCCESS_SAVE
+  USER_SUCCESS_SAVE,
+  USER_LOGOUT
 } from '../actions/user';
 
 const INITIAL_STATE = {
@@ -23,14 +23,18 @@ const restaurantReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         position: action.position
       });
-    case USER_SUCCESS_SAVE: {
-      console.log('TEST ---->', state);
+    case USER_SUCCESS_SAVE:
       return Object.assign(state, {
         error: '',
         loading: false,
         user: action.profile
       });
-    }
+    case USER_LOGOUT:
+      return Object.assign(state, {
+        error: '',
+        loading: false,
+        user: false
+      });
     default:
       return state
   }
