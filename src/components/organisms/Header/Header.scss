@@ -5,6 +5,11 @@ $grey: #ccc;
 $time: 0.4s;
 $logo-height: 64px;
 
+.menu-drawer > div {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo {
   align-items: center;
   background: rgb(0, 188, 212);
@@ -88,4 +93,9 @@ $logo-height: 64px;
   border-radius: 0 0 $height $height;
 
   @include use-animation(down, $time);
+}
+
+.restaurant-list {
+  flex: 1;
+  overflow-y: auto;
 }

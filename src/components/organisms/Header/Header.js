@@ -4,8 +4,10 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import KeyboardBackspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
+import Divider from 'material-ui/Divider';
 import LoginButton from '../../atoms/LoginButton';
 import LoggedButton from '../../atoms/LoggedButton';
+import RestaurantCard from '../../molecules/RestaurantCard';
 import AuthService from '../../../utils/AuthService';
 
 import './Header.css';
@@ -15,7 +17,7 @@ class Header extends Component {
     super(props);
 
     this.state = {
-      open: false
+      open: true
     };
 
     this.onLogout = this.onLogout.bind(this);
@@ -48,6 +50,19 @@ class Header extends Component {
     return <LoginButton auth={auth} />;
   }
 
+  renderRestaurantsList () {
+    const { restaurants, user } = this.props;
+
+    return restaurants.map((place, key) => {
+      return (
+        <div key={key}>
+          <RestaurantCard restaurant={place} currentPosition={user.position} />
+          <Divider />
+        </div>
+      );
+    });
+  }
+
   render () {
     return (
       <div>
@@ -55,7 +70,7 @@ class Header extends Component {
           onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap}
           iconElementRight={this.renderAuthenticationDialog()}
         />
-        <Drawer open={this.state.open}>
+        <Drawer className="menu-drawer" open={this.state.open}>
           <div className='logo'>
             <div style={{ display: 'flex' }}>
               <div className='logo__pacman' />
@@ -64,6 +79,9 @@ class Header extends Component {
             <FloatingActionButton mini className='logo__close-sidebar' onClick={this.onLogoClick}>
               <KeyboardBackspace />
             </FloatingActionButton>
+          </div>
+          <div className="restaurant-list">
+            {this.renderRestaurantsList()}
           </div>
         </Drawer>
       </div>
