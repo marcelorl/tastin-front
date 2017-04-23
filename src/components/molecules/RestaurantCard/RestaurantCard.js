@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import bemClassNames from 'bem-classnames';
 import Closed from 'material-ui/svg-icons/action/lock';
 import Open from 'material-ui/svg-icons/action/lock-open';
 import StarRate from 'material-ui/svg-icons/toggle/star';
@@ -7,6 +8,11 @@ import StarRate from 'material-ui/svg-icons/toggle/star';
 import './RestaurantCard.css';
 
 const goldColor = '#ffd700';
+
+const restaurantClasses = {
+  name: 'restaurant-card',
+  modifiers: ['selected']
+};
 
 const renderOpenNow = (open_now) => {
   if (open_now) {
@@ -26,11 +32,11 @@ const renderDirectionsLink = (origin, destination) => {
 };
 
 const RestaurantCard = props => {
-  const { currentPosition } = props;
-  const { name, rating, vicinity, location, open_now } = props.restaurant;
+  const { currentPosition, onOver } = props;
+  const { place_id, name, rating, vicinity, location, open_now, selected } = props.restaurant;
 
   return (
-    <div className='restaurant-card'>
+    <div className={bemClassNames(restaurantClasses, { selected })} onMouseOver={() => onOver(place_id)}>
       <div className="restaurant-card__name fit-content">{name}</div>
       <div className="restaurant-card__address fit-content">{vicinity}</div>
       <div className="restaurant-card__stats fit-content">
@@ -50,6 +56,7 @@ const RestaurantCard = props => {
 
 RestaurantCard.PropTypes = {
   currentPosition: PropTypes.shape({}),
+  onOver: PropTypes.func,
   restaurant: PropTypes.shape({})
 };
 

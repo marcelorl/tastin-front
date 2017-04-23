@@ -6,7 +6,7 @@ import App from './App';
 import get from 'lodash/get';
 
 import AuthService from '../../../utils/AuthService';
-import { fetchRestaurants } from '../../../actions/restaurant';
+import { fetchRestaurants, onSelectMaker } from '../../../actions/restaurant';
 import { fetchCoords, saveUser, userLogout } from '../../../actions/user';
 import { geolocation } from '../../../utils/Map';
 
@@ -54,6 +54,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchCoords,
   fetchRestaurants: pos => fetchRestaurants(pos),
   logout: userLogout,
+  onSelectMaker,
   saveUser
 }, dispatch);
 

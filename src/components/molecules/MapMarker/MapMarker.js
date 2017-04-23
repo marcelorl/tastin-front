@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import bemClassNames from 'bem-classnames';
 import Place from 'material-ui/svg-icons/maps/place';
 import MyLocation from 'material-ui/svg-icons/maps/my-location';
 
 import './MapMarker.css';
 
 const pointerColor = '#89849b';
+const pointerSelectedColor = '#ff6347';
 
-const secondaryPointer = isSecondary => {
+const markerClasses = {
+  name: 'marker__pin',
+  modifiers: ['selected']
+};
+
+const pointer = ({ isSecondary, onClick, placeId, selected }) => {
   if (isSecondary) {
     return <MyLocation />;
   }
 
   return (
-    <div>
-      <Place className="marker__pin__pointer" color={pointerColor} />
+    <div onClick={() => onClick(placeId)}>
+      <Place className="marker__pin__pointer" color={selected ? pointerSelectedColor : pointerColor} />
       <div className='marker__pin__pulse' />
     </div>
   );
@@ -22,14 +29,16 @@ const secondaryPointer = isSecondary => {
 
 const Marker = props =>
   <div className='marker'>
-    <div className='marker__pin'>
-      {secondaryPointer(props.isSecondary)}
+    <div className={bemClassNames(markerClasses, { selected: props.selected })}>
+      {pointer(props)}
     </div>
   </div>;
 
 Marker.PropTypes = {
   isSecondary: PropTypes.bool,
-  hover: PropTypes.bool
+  onClick: PropTypes.func,
+  placeId: PropTypes.string,
+  selected: PropTypes.bool
 };
 
 Marker.defaultProps = {
