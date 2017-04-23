@@ -5,6 +5,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import KeyboardBackspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
 import LoginButton from '../../atoms/LoginButton';
 import LoggedButton from '../../atoms/LoggedButton';
+import AuthService from '../../../utils/AuthService';
 
 import './Header.css';
 
@@ -16,6 +17,7 @@ class Header extends Component {
       open: false
     };
 
+    this.onLogout = this.onLogout.bind(this);
     this.onLogoClick = this.onLogoClick.bind(this);
     this.onLeftIconButtonTouchTap = this.onLeftIconButtonTouchTap.bind(this);
   }
@@ -28,14 +30,29 @@ class Header extends Component {
     this.setState({ open: false });
   }
 
-  render () {
+  onLogout () {
+    AuthService.logout();
+    this.props.logout();
+
+    this.forceUpdate();
+  }
+
+  renderAuthenticationDialog () {
     const { auth, user } = this.props;
 
+    if (user.logged || auth.loggedIn()) {
+      return <LoggedButton logout={this.onLogout} />;
+    }
+
+    return <LoginButton auth={auth} />;
+  }
+
+  render () {
     return (
       <div>
         <AppBar
           onLeftIconButtonTouchTap={this.onLeftIconButtonTouchTap}
-          iconElementRight={auth.loggedIn() ? <LoggedButton /> : <LoginButton auth={auth} />}
+          iconElementRight={this.renderAuthenticationDialog()}
         />
         <Drawer open={this.state.open}>
           <div className='logo'>
