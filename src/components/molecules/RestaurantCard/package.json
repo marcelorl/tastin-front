@@ -1,0 +1,5 @@
+{
+  "main": "./RestaurantCard.js",
+  "name": "RestaurantCard",
+  "private": true
+}

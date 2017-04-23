@@ -1,0 +1,35 @@
+.restaurant-card {
+  padding: 0.3rem;
+
+  &:hover {
+    background: #f0f0f3;
+    cursor: pointer;
+  }
+}
+
+.restaurant-card__name {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.restaurant-card__address {
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.restaurant-card__stats {
+  justify-content: space-between;
+  display: flex;
+}
+
+.restaurant-card__actions {
+  font-size: 0.7rem;
+  justify-content: space-between;
+}
+
+.fit-content {
+  align-items: center;
+  display: flex;
+  padding-bottom: 5px;
+}

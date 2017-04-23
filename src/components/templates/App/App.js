@@ -15,7 +15,7 @@ class App extends Component {
             <Map currentPosition={user.position} restaurants={restaurants} />
           </div>
           <div className="App">
-            <Header auth={auth} logout={logout} user={user} />
+            <Header auth={auth} logout={logout} restaurants={restaurants} user={user} />
           </div>
         </div>
       </MuiThemeProvider>
