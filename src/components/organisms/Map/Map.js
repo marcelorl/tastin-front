@@ -23,7 +23,8 @@ class Map extends Component {
 
   render () {
     const { currentPosition, restaurants, zoom } = this.props;
-    const places = restaurants
+
+    let places = restaurants
       .map(place => {
         const {place_id, location, name} = place;
 
@@ -35,6 +36,15 @@ class Map extends Component {
             hover={this.props.hoverKey === place_id} />
         );
       });
+
+    const myCurrentLocationMarker = (
+      <MapMarker
+        key='1'
+        isSecondary
+        {...currentPosition} />
+    );
+
+    places.unshift(myCurrentLocationMarker);
 
     return (
       <GoogleMapReact
@@ -68,11 +78,8 @@ Map.PropTypes = {
 };
 
 Map.defaultProps = {
-  zoom: 15,
-  restaurants: [
-    {id: 'Restaurant tudo de bom', lat: -22.955661, lng: -46.544871},
-    {id: 'Muito bom comer aqui', lat: -22.961405, lng: -46.544758}
-  ]
+  zoom: 17,
+  restaurants: []
 };
 
 export default Map;
