@@ -1,4 +1,5 @@
 import React from 'react';
+import Avatar from 'material-ui/Avatar';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
@@ -9,6 +10,7 @@ import AuthService from '../../../utils/AuthService';
 
 const LoggedButton = () => {
   const userName = get(AuthService.getProfile(), 'name', 'John Doe');
+  const picture = get(AuthService.getProfile(), 'picture', '');
 
   return (
     <IconMenu
@@ -20,7 +22,10 @@ const LoggedButton = () => {
       targetOrigin={{horizontal: 'right', vertical: 'top'}}
       anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-      <MenuItem primaryText={userName} disabled />
+      <MenuItem style={{ display: 'flex', overflow: 'hidden' }} disabled>
+        <Avatar style={{ margin: '9px 5px 0 0' }} src={picture} size={30} />
+        {userName}
+      </MenuItem>
       <Divider />
       <MenuItem primaryText="Sign out" onClick={AuthService.logout} />
     </IconMenu>
