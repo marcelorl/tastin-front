@@ -3,6 +3,20 @@
   right: 24px;
 }
 
+.marker__restaurant-name {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  display: none;
+  font-size: 0.8rem;
+  position: absolute;
+  right: -65px;
+  text-align: center;
+  top: -40px;
+  padding: 3px;
+  width: 150px;
+  z-index: 100;
+}
+
 .marker__pin__pulse {
   background: rgba(0,0,0,0.2);
   border-radius: 50%;
@@ -34,6 +48,9 @@
 .marker__pin--selected {
   .marker__pin__pulse {
     background: rgba(255,99,71, 0.2);
+  }
+  .marker__restaurant-name {
+    display: block;
   }
 }
 

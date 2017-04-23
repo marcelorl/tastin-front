@@ -26,13 +26,14 @@ class Map extends Component {
 
     let places = restaurants
       .map(place => {
-        const {place_id, location, selected} = place;
+        const {place_id, name, location, selected} = place;
 
         return (
           <MapMarker
             key={place_id}
             {...location}
             placeId={place_id}
+            name={name}
             onClick={onSelectMaker}
             selected={selected} />
         );

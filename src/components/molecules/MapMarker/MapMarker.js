@@ -14,13 +14,14 @@ const markerClasses = {
   modifiers: ['selected']
 };
 
-const pointer = ({ isSecondary, onClick, placeId, selected }) => {
+const pointer = ({ isSecondary, onClick, name, placeId, selected }) => {
   if (isSecondary) {
     return <MyLocation />;
   }
 
   return (
     <div onClick={() => onClick(placeId)}>
+      <div className="marker__restaurant-name">{name}</div>
       <Place className="marker__pin__pointer" color={selected ? pointerSelectedColor : pointerColor} />
       <div className='marker__pin__pulse' />
     </div>
@@ -37,6 +38,7 @@ const Marker = props =>
 Marker.PropTypes = {
   isSecondary: PropTypes.bool,
   onClick: PropTypes.func,
+  name: PropTypes.string,
   placeId: PropTypes.string,
   selected: PropTypes.bool
 };
