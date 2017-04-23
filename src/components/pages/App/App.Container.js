@@ -35,7 +35,12 @@ class AppContainer extends Component {
 
 AppContainer.propTypes = {
   auth: PropTypes.shape({}),
-  restaurants: PropTypes.array
+  fetchCoords: PropTypes.func,
+  fetchRestaurants: PropTypes.func,
+  logout: PropTypes.func,
+  restaurants: PropTypes.array,
+  saveUser: PropTypes.func,
+  user: PropTypes.shape({})
 };
 
 const mapStateToProps = state =>

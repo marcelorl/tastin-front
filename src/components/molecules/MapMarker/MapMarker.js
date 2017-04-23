@@ -28,8 +28,8 @@ const Marker = props =>
   </div>;
 
 Marker.PropTypes = {
-  hover: PropTypes.bool,
-  text: PropTypes.string
+  isSecondary: PropTypes.bool,
+  hover: PropTypes.bool
 };
 
 Marker.defaultProps = {
