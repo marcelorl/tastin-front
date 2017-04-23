@@ -1,7 +1,7 @@
 .restaurant-card {
   padding: 0.3rem;
 
-  &:hover {
+  &.restaurant-card--selected {
     background: #f0f0f3;
     cursor: pointer;
   }

@@ -22,17 +22,19 @@ class Map extends Component {
   }
 
   render () {
-    const { currentPosition, restaurants, zoom } = this.props;
+    const { currentPosition, onSelectMaker, restaurants, zoom } = this.props;
 
     let places = restaurants
       .map(place => {
-        const {place_id, location} = place;
+        const {place_id, location, selected} = place;
 
         return (
           <MapMarker
             key={place_id}
             {...location}
-            hover={this.props.hoverKey === place_id} />
+            placeId={place_id}
+            onClick={onSelectMaker}
+            selected={selected} />
         );
       });
 
@@ -65,17 +67,15 @@ class Map extends Component {
 }
 
 Map.PropTypes = {
-  center: PropTypes.array,
   zoom: PropTypes.number,
   hoverKey: PropTypes.string,
   clickKey: PropTypes.string,
-  onCenterChange: PropTypes.func,
-  onZoomChange: PropTypes.func,
   onHoverKeyChange: PropTypes.func,
   currentPosition: PropTypes.shape({
     lat: PropTypes.string,
     lng: PropTypes.string
   }),
+  onSelectMaker: PropTypes.func,
   restaurants: PropTypes.array
 };
 

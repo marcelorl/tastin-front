@@ -51,12 +51,12 @@ class Header extends Component {
   }
 
   renderRestaurantsList () {
-    const { restaurants, user } = this.props;
+    const { restaurants, onOverMarker, user } = this.props;
 
     return restaurants.map((place, key) => {
       return (
         <div key={key}>
-          <RestaurantCard restaurant={place} currentPosition={user.position} />
+          <RestaurantCard onOver={onOverMarker} restaurant={place} currentPosition={user.position} />
           <Divider />
         </div>
       );
@@ -91,6 +91,7 @@ class Header extends Component {
 
 Header.propTypes = {
   auth: PropTypes.shape({}),
+  onOverMarker: PropTypes.func,
   user: PropTypes.shape({})
 };
 

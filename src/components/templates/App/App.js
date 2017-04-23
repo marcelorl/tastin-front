@@ -6,16 +6,16 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const { auth, logout, restaurants, user } = this.props;
+    const { auth, logout, onSelectMaker, restaurants, user } = this.props;
 
     return (
       <MuiThemeProvider>
         <div>
           <div className="map-container">
-            <Map currentPosition={user.position} restaurants={restaurants} />
+            <Map currentPosition={user.position} restaurants={restaurants} onSelectMaker={onSelectMaker} />
           </div>
           <div className="App">
-            <Header auth={auth} logout={logout} restaurants={restaurants} user={user} />
+            <Header auth={auth} logout={logout} restaurants={restaurants} user={user} onOverMarker={onSelectMaker} />
           </div>
         </div>
       </MuiThemeProvider>

@@ -16,6 +16,7 @@
     "auth0-lock": "^10.14.0",
     "axios": "^0.16.1",
     "babel-polyfill": "^6.23.0",
+    "bem-classnames": "^1.0.7",
     "google-map-react": "^0.24.0",
     "lodash": "^4.17.4",
     "material-ui": "0.16.7",
