@@ -22,7 +22,7 @@ class Map extends Component {
   }
 
   render () {
-    const { currentPosition, onSelectMaker, restaurants, zoom } = this.props;
+    const { currentPosition, onSelectMarker, restaurants, zoom } = this.props;
 
     let places = restaurants
       .map(place => {
@@ -34,7 +34,7 @@ class Map extends Component {
             {...location}
             placeId={place_id}
             name={name}
-            onClick={onSelectMaker}
+            onClick={onSelectMarker}
             selected={selected} />
         );
       });
@@ -76,7 +76,7 @@ Map.PropTypes = {
     lat: PropTypes.string,
     lng: PropTypes.string
   }),
-  onSelectMaker: PropTypes.func,
+  onSelectMarker: PropTypes.func,
   restaurants: PropTypes.array
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bemClassNames from 'bem-classnames';
+import { Link } from 'react-router-dom';
 import Closed from 'material-ui/svg-icons/action/lock';
 import Open from 'material-ui/svg-icons/action/lock-open';
 import StarRate from 'material-ui/svg-icons/toggle/star';
@@ -47,7 +48,7 @@ const RestaurantCard = props => {
       </div>
       <div className="restaurant-card__actions fit-content">
         {renderDirectionsLink(currentPosition, location)}
-        <div>Reviews ></div>
+        <Link to={`${place_id}/reviews`}>Reviews ></Link>
       </div>
     </div>
   );

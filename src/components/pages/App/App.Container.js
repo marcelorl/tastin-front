@@ -7,7 +7,7 @@ import App from './App';
 import get from 'lodash/get';
 
 import AuthService from '../../../utils/AuthService';
-import { fetchRestaurants, onSelectMaker } from '../../../actions/restaurant';
+import { fetchRestaurants, onSelectMarker } from '../../../actions/restaurant';
 import { fetchCoords, saveUser, userLogout } from '../../../actions/user';
 import { geolocation } from '../../../utils/Map';
 
@@ -24,11 +24,13 @@ class AppContainer extends Component {
   }
 
   componentDidMount () {
-    const { fetchRestaurants } = this.props;
+    const { fetchRestaurants, path } = this.props;
 
     geolocation(fetchRestaurants);
 
-    browserHistory.push('/list');
+    if (path === '/') {
+      browserHistory.push('/list');
+    }
   }
 
   render () {
@@ -41,7 +43,8 @@ AppContainer.propTypes = {
   fetchCoords: PropTypes.func,
   fetchRestaurants: PropTypes.func,
   logout: PropTypes.func,
-  onSelectMaker: PropTypes.func,
+  onSelectMarker: PropTypes.func,
+  path: PropTypes.string,
   restaurants: PropTypes.array,
   saveUser: PropTypes.func,
   user: PropTypes.shape({})
@@ -50,6 +53,7 @@ AppContainer.propTypes = {
 const mapStateToProps = (state, ownProps) =>
   (Object.assign({
     auth: authService,
+    path: get(state, 'routing.locationBeforeTransitions.pathname', ''),
     restaurants: get(state, 'restaurants.list', []),
     user: state.users
   }, ownProps));
@@ -58,7 +62,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchCoords,
   fetchRestaurants: pos => fetchRestaurants(pos),
   logout: userLogout,
-  onSelectMaker,
+  onSelectMarker,
   saveUser
 }, dispatch);
 
