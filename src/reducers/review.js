@@ -19,12 +19,14 @@ const reviewReducer = (state = INITIAL_STATE, action) => {
         loading: true,
         list: []
       });
-    case REVIEW_SUCCESS_FIND:
+    case REVIEW_SUCCESS_FIND: {
+      console.log(action.restaurants.data);
       return Object.assign({}, state, {
         error: '',
         loading: false,
-        list: get(action, 'reviews.data', [])
+        list: get(action, 'restaurants.data', [])
       });
+    }
     default:
       return state
   }
