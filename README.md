@@ -3,11 +3,11 @@
 [![travis][travis-image]][travis-url]
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 
-###Overview
+### Overview
 
 App to find restaurants around the user.
 
-###Tools
+### Tools
   - Create React App
   - React
   - Redux
@@ -20,19 +20,19 @@ App to find restaurants around the user.
   - tests
   - test coverage report
   
-###Commands
-  ####Installation
+### Commands
+  #### Installation
     - cp .env.example .env (fill with the right variables)
     - yarn
-  ####Development
+  #### Development
     - yarn start
-  ####Testing
+  #### Testing
     - yarn test
     - yarn coverage
-  ####Deploy
+  #### Deploy
     - yarn deploy
   
-###Example
+### Example
 ![Example APP Working](tastin.gif)
 
 [travis-image]: https://img.shields.io/travis/Flet/semistandard.svg?style=flat-square
