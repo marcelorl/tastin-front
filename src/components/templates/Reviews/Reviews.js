@@ -18,11 +18,16 @@ class Reviews extends Component {
     );
   }
 
+  goBack () {
+    window.location = `${window.location.origin}/list`;
+  }
+
   render() {
     const { onSave, placeId, user } = this.props;
 
     return (
       <div className="review-list">
+        <div className="review-list__go-back" onClick={this.goBack}>{'< List'}</div>
         {this.renderReviewsList()}
         <FormReview user={user.user} placeId={placeId} onSave={onSave} />
       </div>
