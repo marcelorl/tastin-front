@@ -27,7 +27,7 @@ const reviewReducer = (state = INITIAL_STATE, action) => {
       });
     case REVIEW_SUCCESS_SAVE:
       const list = state.list.concat([get(action, 'review.data', {})]);
-console.log(list);
+
       return Object.assign({}, state, {
         list
       });

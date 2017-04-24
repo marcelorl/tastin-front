@@ -4,6 +4,8 @@ import Divider from 'material-ui/Divider';
 import ReviewCard from '../../molecules/ReviewCard';
 import FormReview from '../../molecules/FormReview';
 
+import './Reviews.css';
+
 class Reviews extends Component {
   renderReviewsList () {
     const { reviews } = this.props;
