@@ -1,4 +1,15 @@
 .review-list {
+  display: flex;
   flex: 1;
+  flex-direction: column;
   overflow-y: auto;
+}
+
+.review-list__go-back {
+  padding: 5px;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
