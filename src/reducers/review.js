@@ -3,7 +3,7 @@ import {
   REVIEW_FAIL_FIND,
   REVIEW_REQUEST_FIND,
   REVIEW_SUCCESS_FIND,
-  // REVIEW_FORM
+  REVIEW_SUCCESS_SAVE
 } from '../actions/review';
 
 const INITIAL_STATE = {
@@ -19,14 +19,18 @@ const reviewReducer = (state = INITIAL_STATE, action) => {
         loading: true,
         list: []
       });
-    case REVIEW_SUCCESS_FIND: {
-      console.log(action.restaurants.data);
+    case REVIEW_SUCCESS_FIND:
       return Object.assign({}, state, {
         error: '',
         loading: false,
         list: get(action, 'restaurants.data', [])
       });
-    }
+    case REVIEW_SUCCESS_SAVE:
+      const list = state.list.concat([get(action, 'review.data', {})]);
+console.log(list);
+      return Object.assign({}, state, {
+        list
+      });
     default:
       return state
   }
