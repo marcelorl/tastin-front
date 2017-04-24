@@ -35,4 +35,8 @@ App.propTypes = {
   user: PropTypes.shape({})
 };
 
+App.defaultProps = {
+  user: {}
+};
+
 export default App;
