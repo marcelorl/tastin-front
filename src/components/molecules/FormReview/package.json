@@ -1,5 +1,5 @@
 {
-  "main": "./ReviewCard.js",
-  "name": "ReviewCard",
+  "main": "./FormReview.js",
+  "name": "FormReview",
   "private": true
 }

@@ -1,0 +1,20 @@
+.review-card {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  text-align: left;
+}
+
+.review-card__user {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-card__name {
+  font-weight: bold;
+}
+
+.review-card__message {
+  font-style: italic;
+  padding-top: 5px;
+}
