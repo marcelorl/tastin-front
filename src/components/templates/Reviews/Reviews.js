@@ -17,12 +17,12 @@ class Reviews extends Component {
   }
 
   render() {
-    const { onSave } = this.props;
+    const { onSave, placeId, user } = this.props;
 
     return (
       <div className="review-list">
         {this.renderReviewsList()}
-        <FormReview onSave={onSave} />
+        <FormReview user={user.user} placeId={placeId} onSave={onSave} />
       </div>
     );
   }

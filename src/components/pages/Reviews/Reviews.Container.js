@@ -4,33 +4,41 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import get from 'lodash/get';
 
-import { fetchReviews } from '../../../actions/review';
+import { fetchReviews, onSaveReview } from '../../../actions/review';
 import Reviews from './Reviews';
 
 class ReviewsContainer extends Component {
-  componentDidMount () {
-    const { fetchReviews, location } = this.props;
-    const placeId = location.pathname.split('/')[1];
+  constructor(props) {
+    super(props);
 
-    fetchReviews(placeId);
+    this.placeId = props.location.pathname.split('/')[1];
+  }
+
+  componentDidMount () {
+    const { fetchReviews } = this.props;
+
+    fetchReviews(this.placeId);
   }
 
   render () {
-    return <Reviews {...this.props} />;
+    return <Reviews {...this.props} placeId={this.placeId} />;
   }
 }
 
 ReviewsContainer.propTypes = {
-  reviews: PropTypes.array
+  reviews: PropTypes.array,
+  user: PropTypes.shape({})
 };
 
 const mapStateToProps = (state, ownProps) =>
   (Object.assign({
-    reviews: get(state, 'reviews.list', [])
+    reviews: get(state, 'reviews.list', []),
+    user: state.users
   }, ownProps));
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchReviews
+  fetchReviews,
+  onSave: onSaveReview
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewsContainer);

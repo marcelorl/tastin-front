@@ -7,15 +7,23 @@ class ReviewCard extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { message: '' };
+    const { placeId, user } = props;
+
+    this.state = {
+      place_id: placeId,
+      user_name: user.name,
+      user_email: user.email,
+      message: ''
+    };
 
     this.onChange = this.onChange.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
 
   onSave () {
     const { onSave } = this.props;
 
-    onSave(this.state.message);
+    onSave(this.state);
 
     this.setState({ message: '' });
   }
@@ -28,11 +36,10 @@ class ReviewCard extends Component {
 
   render () {
     return (
-      <form style={{ 'text-align': 'left', padding: '5px' }}>
+      <form style={{ textAlign: 'left', padding: '5px' }}>
         <TextField
           hintText="Really nice place"
           floatingLabelText="Write your review here"
-          defaultValue={this.state.message}
           value={this.state.message}
           onChange={e => { this.onChange(e) }}
           multiLine
@@ -40,7 +47,7 @@ class ReviewCard extends Component {
           rows={1}
         />
 
-        <RaisedButton onClick={this.onSave} label="Save" primary />
+        <RaisedButton onTouchTap={this.onSave} label="Save" primary />
       </form>
     );
   }
@@ -48,7 +55,9 @@ class ReviewCard extends Component {
 
 
 ReviewCard.PropTypes = {
-  onSave: PropTypes.func
+  onSave: PropTypes.func,
+  placeId: PropTypes.string,
+  user: PropTypes.shape({})
 };
 
 ReviewCard.defaultProps = {

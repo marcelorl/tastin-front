@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route
@@ -8,8 +8,6 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import App from './components/pages/App';
 import Restaurants from './components/pages/Restaurants';
 import Reviews from './components/pages/Reviews';
-
-//class Reviews extends Component { render() {return <div>Reviews</div>;} }
 
 const routes = ({ store }) => {
   const history = syncHistoryWithStore(browserHistory, store);
