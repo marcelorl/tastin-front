@@ -8,6 +8,7 @@
 App to find restaurants around the user.
 
 ### Tools
+  - Atomic design
   - Create React App
   - React
   - Redux
@@ -26,6 +27,7 @@ App to find restaurants around the user.
     - yarn
   #### Development
     - yarn start
+    - NOTE: to access it locally http://localhost:3000/list
   #### Testing
     - yarn test
     - yarn coverage
