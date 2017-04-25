@@ -3,7 +3,7 @@ import {
   USER_COORDS_SUCCESS_FETCH,
   USER_SUCCESS_SAVE,
   USER_LOGOUT
-} from '../actions/user';
+} from 'actions/user';
 
 const INITIAL_STATE = {
   loading: false, user: {}, logged: false, position: {}, error: ''

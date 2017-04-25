@@ -4,7 +4,7 @@ import {
   REVIEW_REQUEST_FIND,
   REVIEW_SUCCESS_FIND,
   REVIEW_SUCCESS_SAVE
-} from '../actions/review';
+} from 'actions/review';
 
 const INITIAL_STATE = {
   loading: false, list: [], error: ''

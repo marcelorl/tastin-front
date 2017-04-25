@@ -1,5 +1,5 @@
 import React from 'react';
-import ReviewsTemplate from '../../templates/Reviews';
+import ReviewsTemplate from 'components/templates/Reviews';
 
 const Reviews = props =>
   <ReviewsTemplate {...props} />;

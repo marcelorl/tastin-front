@@ -7,7 +7,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Divider from 'material-ui/Divider';
 import get from 'lodash/get';
-import AuthService from '../../../utils/AuthService';
+import AuthService from 'utils/AuthService';
 
 const LoggedButton = props => {
   const { logout } = props;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import get from 'lodash/get';
 
-import { fetchReviews, onSaveReview } from '../../../actions/review';
+import { fetchReviews, onSaveReview } from 'actions/review';
 import Reviews from './Reviews';
 
 class ReviewsContainer extends Component {

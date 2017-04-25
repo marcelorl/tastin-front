@@ -1,4 +1,4 @@
-import { geolocation } from '../utils/Map';
+import { geolocation } from 'utils/Map';
 
 export const USER_COORDS_REQUEST_FETCH = 'USER_COORDS_REQUEST_FETCH';
 export const USER_COORDS_SUCCESS_FETCH = 'USER_COORDS_SUCCESS_FETCH';

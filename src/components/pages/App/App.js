@@ -1,5 +1,5 @@
 import React from 'react';
-import AppTemplate from '../../templates/App';
+import AppTemplate from 'components/templates/App';
 
 const App = props =>
   <AppTemplate {...props} />;

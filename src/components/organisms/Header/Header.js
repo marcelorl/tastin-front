@@ -4,9 +4,9 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import KeyboardBackspace from 'material-ui/svg-icons/hardware/keyboard-backspace';
-import LoginButton from '../../atoms/LoginButton';
-import LoggedButton from '../../atoms/LoggedButton';
-import AuthService from '../../../utils/AuthService';
+import LoginButton from 'components/atoms/LoginButton';
+import LoggedButton from 'components/atoms/LoggedButton';
+import AuthService from 'utils/AuthService';
 
 import './Header.css';
 

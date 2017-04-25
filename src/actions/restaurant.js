@@ -1,4 +1,4 @@
-import axios from '../utils/Request';
+import axios from 'utils/Request';
 
 export const RESTAURANT_FAIL_FETCH = 'RESTAURANT_FAIL_FETCH';
 export const RESTAURANT_REQUEST_FETCH = 'RESTAURANT_REQUEST_FETCH';

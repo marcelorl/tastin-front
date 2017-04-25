@@ -5,9 +5,9 @@ import {
 } from 'react-router-dom';
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux';
-import App from './components/pages/App';
-import Restaurants from './components/pages/Restaurants';
-import Reviews from './components/pages/Reviews';
+import App from 'components/pages/App';
+import Restaurants from 'components/pages/Restaurants';
+import Reviews from 'components/pages/Reviews';
 
 const routes = ({ store }) => {
   const history = syncHistoryWithStore(browserHistory, store);

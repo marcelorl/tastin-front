@@ -1,5 +1,5 @@
 import React from 'react';
-import RestaurantsTemplate from '../../templates/Restaurants';
+import RestaurantsTemplate from 'components/templates/Restaurants';
 
 const Restaurants = props =>
   <RestaurantsTemplate {...props} />;
