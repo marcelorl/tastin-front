@@ -33,6 +33,16 @@ App to find restaurants around the user.
     - yarn coverage
   #### Deploy
     - yarn deploy
+    
+  #### Things to be improved
+    - Better design
+    - Tests
+    - Routing
+    - Directions to be opened in other instance of google maps
+    - git hooks
+    - Authentication backend
+    - scroll when selecting place
+    - filtering, radius
   
 ### Example
 ![Example APP Working](tastin.gif)
