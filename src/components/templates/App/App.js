@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Map from '../../organisms/Map';
-import Header from '../../organisms/Header';
+import Map from 'components/organisms/Map';
+import Header from 'components/organisms/Header';
 import './App.css';
 
 class App extends Component {

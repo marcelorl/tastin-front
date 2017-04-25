@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Divider from 'material-ui/Divider';
-import ReviewCard from '../../molecules/ReviewCard';
-import FormReview from '../../molecules/FormReview';
+import ReviewCard from 'components/molecules/ReviewCard';
+import FormReview from 'components/molecules/FormReview';
 
 import './Reviews.css';
 

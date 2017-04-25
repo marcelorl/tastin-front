@@ -6,10 +6,10 @@ import { bindActionCreators } from 'redux';
 import App from './App';
 import get from 'lodash/get';
 
-import AuthService from '../../../utils/AuthService';
-import { fetchRestaurants, onSelectMarker } from '../../../actions/restaurant';
-import { fetchCoords, saveUser, userLogout } from '../../../actions/user';
-import { geolocation } from '../../../utils/Map';
+import AuthService from 'utils/AuthService';
+import { fetchRestaurants, onSelectMarker } from 'actions/restaurant';
+import { fetchCoords, saveUser, userLogout } from 'actions/user';
+import { geolocation } from 'utils/Map';
 
 const authService = new AuthService(process.env.REACT_APP_AUTH0_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
 

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import get from 'lodash/get';
 
-import { onSelectMarker } from '../../../actions/restaurant';
+import { onSelectMarker } from 'actions/restaurant';
 import Restaurants from './Restaurants';
 
 class RestaurantsContainer extends Component {
