@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router';
 import App from './App';
 import get from 'lodash/get';
 
@@ -45,13 +46,13 @@ AppContainer.propTypes = {
   user: PropTypes.shape({})
 };
 
-const mapStateToProps = (state, ownProps) =>
+const mapStateToProps = state =>
   (Object.assign({
     auth: authService,
     path: get(state, 'routing.locationBeforeTransitions.pathname', ''),
     restaurants: get(state, 'restaurants.list', []),
     user: state.users
-  }, ownProps));
+  }));
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchCoords,
@@ -61,4 +62,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   saveUser
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AppContainer));
