@@ -19,11 +19,11 @@ RestaurantsContainer.propTypes = {
   user: PropTypes.shape({})
 };
 
-const mapStateToProps = (state, ownProps) =>
+const mapStateToProps = state =>
   (Object.assign({
     restaurants: get(state, 'restaurants.list', []),
     user: state.users
-  }, ownProps));
+  }));
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   onSelectMarker
