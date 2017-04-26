@@ -27,7 +27,7 @@ App to find restaurants around the user.
     - yarn
   #### Development
     - yarn start
-    - NOTE: to access it locally http://localhost:3000/list
+    - NOTE: to access it locally http://localhost:3000
   #### Testing
     - yarn test
     - yarn coverage
@@ -37,12 +37,12 @@ App to find restaurants around the user.
   #### Things to be improved
     - Better design
     - Tests
-    - Routing
     - Directions to be opened in other instance of google maps
     - git hooks
     - Authentication backend
     - scroll when selecting place
     - filtering, radius
+    - Loaders when data fetching
   
 ### Example
 ![Example APP Working](tastin.gif)

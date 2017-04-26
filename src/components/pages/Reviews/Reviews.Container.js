@@ -11,17 +11,17 @@ class ReviewsContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.placeId = props.location.pathname.split('/')[1];
+    this.state = { placeId: props.match.params.id };
   }
 
   componentDidMount () {
     const { fetchReviews } = this.props;
 
-    fetchReviews(this.placeId);
+    fetchReviews(this.state.placeId);
   }
 
   render () {
-    return <Reviews {...this.props} placeId={this.placeId} />;
+    return <Reviews {...this.props} placeId={this.state.placeId} />;
   }
 }
 
