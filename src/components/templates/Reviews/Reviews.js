@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
 import ReviewCard from 'components/molecules/ReviewCard';
 import FormReview from 'components/molecules/FormReview';
 
@@ -18,17 +19,20 @@ class Reviews extends Component {
     );
   }
 
-  goBack () {
-    window.location = `${window.location.origin}/list`;
-  }
-
   render() {
-    const { onSave, placeId, user } = this.props;
+    const { history, onSave, placeId, user } = this.props;
+
+    const back = (e) => {
+      e.stopPropagation();
+      history.goBack();
+    };
 
     return (
       <div className="review-list">
-        <div className="review-list__go-back" onClick={this.goBack}>{'< List'}</div>
+        <RaisedButton fullWidth onClick={back} label="Return to list" />
+
         {this.renderReviewsList()}
+
         <FormReview user={user.user} placeId={placeId} onSave={onSave} />
       </div>
     );
