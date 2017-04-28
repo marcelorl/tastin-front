@@ -29,14 +29,14 @@ const saveReview = review => {
 export const fetchReviews = id => {
   return dispatch => {
     dispatch(requestReviews());
-    return axios.get(`/restaurants/${id}/reviews`)
+    return axios.get(`/api/restaurants/${id}/reviews`)
       .then(restaurants => dispatch(receiveReviews(restaurants)))
   }
 };
 
 export const onSaveReview = review => {
   return dispatch => {
-    return axios.post(`/reviews`, review)
+    return axios.post(`/api/reviews`, review)
       .then(response => {
         dispatch(saveReview(response));
       });
