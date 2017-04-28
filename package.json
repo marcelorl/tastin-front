@@ -36,7 +36,6 @@
   "devDependencies": {
     "enzyme": "^2.8.2",
     "express": "^4.15.2",
-    "gh-pages": "^0.12.0",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "path": "^0.12.7",
@@ -52,8 +51,6 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   }
 }

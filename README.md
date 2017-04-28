@@ -23,7 +23,7 @@ App to find restaurants around the user.
   
 ### Commands
   #### Installation
-    - cp .env.example .env (fill with the right variables)
+    - cp .env.example .env (DEV - fill with the right variables)
     - yarn
   #### Development
     - yarn start
