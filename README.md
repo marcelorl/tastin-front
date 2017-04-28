@@ -43,6 +43,9 @@ App to find restaurants around the user.
     - scroll when selecting place
     - filtering, radius
     - Loaders when data fetching
+    - react-helmet
+    - immutablejs
+    - snackbars for success/fail massages
   
 ### Example
 ![Example APP Working](tastin.gif)
