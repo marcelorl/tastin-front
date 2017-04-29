@@ -12,7 +12,7 @@ const ReviewCard = props => {
   return (
     <div className="review-card" key={id}>
       <div className="review-card__user">
-        <div className="review-card__name">{user_name}</div>
+        <div className="review-card__name">{user_name || 'Anonymous'}</div>
         <div className="review-card__date">{nDate}</div>
       </div>
       <div className="review-card__message">{message}</div>
