@@ -1,4 +1,4 @@
-import Auth0Lock from 'auth0-lock'
+import Auth0Lock from 'auth0-lock';
 
 export default class AuthService {
   static getIdToken() {
@@ -22,7 +22,8 @@ export default class AuthService {
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
         responseType: 'token'
-      }
+      },
+      languageDictionary: { title: 'Tastin'}
     });
 
     this.lock.on('authenticated', this._doAuthentication.bind(this));
