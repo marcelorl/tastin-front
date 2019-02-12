@@ -1,0 +1,24 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "src/components/atoms/LoggedButton/package.json",
+        "src/components/atoms/LoginButton/package.json",
+        "src/components/molecules/FormReview/package.json",
+        "src/components/molecules/MapMarker/package.json",
+        "src/components/molecules/RestaurantCard/package.json",
+        "src/components/molecules/ReviewCard/package.json",
+        "src/components/organisms/Header/package.json",
+        "src/components/organisms/Map/package.json",
+        "src/components/pages/App/package.json",
+        "src/components/pages/Restaurants/package.json",
+        "src/components/pages/Reviews/package.json",
+        "src/components/templates/App/package.json",
+        "src/components/templates/Restaurants/package.json",
+        "src/components/templates/Reviews/package.json",
+        "src/reducers/package.json"
+      ]
+    }
+  }
+}
